@@ -1,13 +1,236 @@
 ---
-layout: presentation
+layout: default
+title: PM Consulting — Expert Project Management
+description: Strategic project management consulting to help organizations deliver on time, on budget, and beyond expectations.
 ---
 
-{% for post in site.posts reversed %}
-	{% include slide.html %}
-	<div class="page-break"></div>
-{% endfor %}
-{% unless site.simple-slideshow %}
-{% if site.overview %}
-<section id="overview" class="step" {% for attr in site.overview-data %} data-{{attr[0]}}="{{attr[1]}}"{% endfor %}></section>
-{% endif %}
-{% endunless %}
+<!-- ── Hero ──────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">PMP · Agile · Program Management</div>
+        <h1>Delivering <em>Results</em> Through Expert Project Leadership</h1>
+        <p>Strategic project management consulting that brings clarity, accountability, and momentum to your most critical initiatives.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Work With Me</a>
+          <a href="#services" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.5);">See Services</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-value">15+</div>
+          <div class="hero-stat-label">Years Experience</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">80+</div>
+          <div class="hero-stat-label">Projects Delivered</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">100%</div>
+          <div class="hero-stat-label">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Services ──────────────────────────────────────────── -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header">
+      <span class="section-label">What I Offer</span>
+      <h2 class="section-title">Services Tailored to Your Goals</h2>
+      <p class="section-subtitle">From strategy to execution, I provide hands-on consulting to drive project success.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Project Management</h3>
+        <p>End-to-end project planning, execution, monitoring, and closeout using industry best practices and PMI standards.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Agile Transformation</h3>
+        <p>Help your teams adopt Scrum, Kanban, or hybrid frameworks to increase velocity and deliver value faster.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3>Program Management</h3>
+        <p>Coordinate multiple interdependent projects with unified governance, reporting, and strategic alignment.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔄</div>
+        <h3>Process Improvement</h3>
+        <p>Identify bottlenecks, redesign workflows, and implement PMO frameworks that scale with your organization.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎓</div>
+        <h3>PM Training &amp; Coaching</h3>
+        <p>Workshops and 1-on-1 coaching to upskill your project managers and build a high-performing PM culture.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Project Recovery</h3>
+        <p>Rescue troubled projects with rapid assessment, stakeholder realignment, and pragmatic recovery plans.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── About ─────────────────────────────────────────────── -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-avatar">👤</div>
+      <div class="about-content">
+        <span class="section-label">About Me</span>
+        <h2 class="section-title">A Trusted Partner in Project Excellence</h2>
+        <p>With over 15 years leading complex projects across technology, healthcare, finance, and government sectors, I bring a results-driven approach backed by deep expertise and a passion for helping organizations succeed.</p>
+        <p>My philosophy is simple: great project management is about people first, process second. I work closely with your team to build buy-in, remove obstacles, and create sustainable delivery habits that outlast any engagement.</p>
+        <div class="credentials">
+          <span class="credential-tag">PMP Certified</span>
+          <span class="credential-tag">PMI-ACP</span>
+          <span class="credential-tag">Scrum Master</span>
+          <span class="credential-tag">Six Sigma</span>
+          <span class="credential-tag">PRINCE2</span>
+          <span class="credential-tag">Change Management</span>
+        </div>
+        <br/>
+        <a href="#contact" class="btn btn-primary">Schedule a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Testimonials ──────────────────────────────────────── -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <span class="section-label">Client Feedback</span>
+      <h2 class="section-title">What Clients Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <blockquote>They turned our stalled $4M initiative around in 60 days. Exceptional stakeholder management and clear-eyed prioritization made all the difference.</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">JL</div>
+          <div>
+            <div class="author-name">Jennifer L.</div>
+            <div class="author-title">VP Operations, TechCorp</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <blockquote>Our Agile transformation was seamless. Teams went from chaotic sprints to predictable delivery within a quarter. I'd hire them again without hesitation.</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">MR</div>
+          <div>
+            <div class="author-name">Marcus R.</div>
+            <div class="author-title">CTO, HealthStream Inc.</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <blockquote>The PMO framework they built gave us visibility across 12 concurrent projects for the first time ever. A true game changer for our leadership team.</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">AS</div>
+          <div>
+            <div class="author-name">Aisha S.</div>
+            <div class="author-title">Director of Programs, GovSolutions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Blog Preview ──────────────────────────────────────── -->
+<section class="blog-preview" id="blog">
+  <div class="container">
+    <div class="blog-header">
+      <span class="section-label">Insights</span>
+      <h2 class="section-title">From the Blog</h2>
+      <p class="section-subtitle">Practical advice on project management, leadership, and delivery excellence.</p>
+    </div>
+    <div class="blog-grid">
+      {% for post in site.posts limit:3 %}
+      <div class="blog-card">
+        <div class="blog-card-body">
+          <div class="blog-date">{{ post.date | date: "%B %-d, %Y" }}</div>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt | strip_html | truncatewords: 22 }}</p>
+          <a href="{{ post.url | relative_url }}" class="read-more">Read more &rarr;</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="blog-cta">
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline">View All Posts</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ───────────────────────────────────────────── -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Let's Talk About Your Project</h2>
+        <p>Ready to bring expert leadership to your next initiative? I'd love to hear about your challenges and explore how I can help.</p>
+        <div class="contact-detail">
+          <span class="contact-detail-icon">📧</span>
+          <span>hello@pmconsulting.com</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-icon">📞</span>
+          <span>(555) 000-0000</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-icon">📍</span>
+          <span>Available Nationwide &amp; Remote</span>
+        </div>
+      </div>
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="company">Company / Organization</label>
+          <input type="text" id="company" name="company" placeholder="Acme Corp" />
+        </div>
+        <div class="form-group">
+          <label for="service">Service of Interest</label>
+          <select id="service" name="service">
+            <option value="">Select a service…</option>
+            <option>Project Management</option>
+            <option>Agile Transformation</option>
+            <option>Program Management</option>
+            <option>Process Improvement</option>
+            <option>PM Training &amp; Coaching</option>
+            <option>Project Recovery</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell Me About Your Project</label>
+          <textarea id="message" name="message" placeholder="Describe your project, challenges, and goals…" required></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+        <p class="form-note">I typically respond within 1 business day.</p>
+      </form>
+    </div>
+  </div>
+</section>
