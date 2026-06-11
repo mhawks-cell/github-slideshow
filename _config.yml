@@ -17,9 +17,9 @@ plugins:
   - jemoji
 
 ## Site identity
-title:         PM Consulting
-practice_name: PM Consulting
-author:        PM Consulting
+title:         Wise Tortoise Consulting
+practice_name: Wise Tortoise Consulting
+author:        Wise Tortoise Consulting
 description:   Expert project management consulting — delivering results through expert project leadership.
 
 sass:
