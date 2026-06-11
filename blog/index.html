@@ -1,0 +1,25 @@
+---
+layout: default
+title: Blog — Wise Tortoise Consulting
+description: Insights and practical advice on project management, leadership, and delivery excellence.
+---
+
+<section class="blog-page">
+  <div class="container">
+    <div class="blog-page-header">
+      <span class="section-label">Insights</span>
+      <h1 class="section-title">Blog</h1>
+      <p class="section-subtitle">Practical perspectives on project management, Agile, leadership, and more.</p>
+    </div>
+    <div class="blog-page-grid">
+      {% for post in site.posts %}
+      <div class="blog-post-card">
+        <p class="post-meta">{{ post.date | date: "%B %-d, %Y" }}{% if post.categories %} &middot; {{ post.categories | join: ", " }}{% endif %}</p>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+        <a href="{{ post.url | relative_url }}" class="btn btn-outline" style="padding:.5rem 1.1rem;font-size:.85rem;">Read More</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

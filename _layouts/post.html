@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<article class="post-page">
+  <div class="container">
+    <div class="post-hero">
+      <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}{% if page.categories %} &middot; {{ page.categories | join: ", " }}{% endif %}</p>
+      <h1>{{ page.title }}</h1>
+    </div>
+    <div class="post-content">
+      {{ content }}
+    </div>
+    <br/>
+    <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline">&larr; Back to Blog</a>
+  </div>
+</article>

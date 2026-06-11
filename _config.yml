@@ -16,10 +16,11 @@ kramdown:
 plugins:
   - jemoji
 
-## personalize your slide show
-title:       github-slideshow
-author:      GitHubTeacher
-description: A fun activity for learning Git and GitHub.
+## Site identity
+title:         Wise Tortoise Consulting
+practice_name: Wise Tortoise Consulting
+author:        Wise Tortoise Consulting
+description:   Expert project management consulting — delivering results through expert project leadership.
 
 sass:
   style:     :compressed
