@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flores — Flor &amp; Azúcar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="14" r="7" fill="#c2185b"/><circle cx="20" cy="26" r="7" fill="#c2185b"/>
+          <circle cx="14" cy="20" r="7" fill="#c9973f"/><circle cx="26" cy="20" r="7" fill="#c9973f"/>
+          <circle cx="20" cy="20" r="6" fill="#fff"/>
+        </svg>
+        <span>Flor &amp; Azúcar<span class="tagline" data-i18n="brand.tagline">Flores &amp; Pasteles</span></span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+          <li><a href="about.html" data-i18n="nav.about">Nosotros</a></li>
+          <li><a href="gallery.html" data-i18n="nav.gallery">Galería</a></li>
+          <li><a href="flowers.html" class="active" data-i18n="nav.flowers">Flores</a></li>
+          <li><a href="cakes.html" data-i18n="nav.cakes">Pasteles</a></li>
+          <li><a href="shop.html" data-i18n="nav.shop">Tienda</a></li>
+          <li><a href="reviews.html" data-i18n="nav.reviews">Reseñas</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-toggle lang-toggle-desktop">
+          <button type="button" data-lang="es">ES</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+        <a href="cart.html" class="cart-link" aria-label="Carrito">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count" data-cart-count>0</span>
+        </a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <span class="eyebrow" data-i18n="flowers.header.eyebrow">Tienda · Flores</span>
+        <h1 data-i18n="flowers.header.title">Nuestras Flores</h1>
+        <p data-i18n="flowers.header.subtitle">Ramos, arreglos y centros de mesa para cada ocasión.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="product-grid" data-product-grid="flowers"></div>
+        <p class="muted center" style="margin-top:36px;" data-i18n="flowers.note">¿Buscas algo diferente? Escríbenos y creamos un arreglo personalizado para ti.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand">
+            <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="14" r="7" fill="#c2185b"/><circle cx="20" cy="26" r="7" fill="#c2185b"/>
+              <circle cx="14" cy="20" r="7" fill="#c9973f"/><circle cx="26" cy="20" r="7" fill="#c9973f"/>
+              <circle cx="20" cy="20" r="6" fill="#fff"/>
+            </svg>
+            <span>Flor &amp; Azúcar</span>
+          </a>
+          <p class="muted" style="margin-top:14px;max-width:32ch;" data-i18n="footer.about">Flores y pasteles hechos a mano en Miami.</p>
+          <div class="social-row">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="WhatsApp">WA</a>
+          </div>
+        </div>
+        <div>
+          <h4 data-i18n="footer.linksTitle">Enlaces</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" data-i18n="footer.link.home">Inicio</a></li>
+            <li><a href="about.html" data-i18n="footer.link.about">Nosotros</a></li>
+            <li><a href="gallery.html" data-i18n="footer.link.gallery">Galería</a></li>
+            <li><a href="flowers.html" data-i18n="footer.link.flowers">Flores</a></li>
+            <li><a href="cakes.html" data-i18n="footer.link.cakes">Pasteles</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.contactTitle">Contacto</h4>
+          <ul class="footer-links">
+            <li><span data-i18n="footer.contact.phoneLabel">Teléfono</span>: (305) 555-0142</li>
+            <li><span data-i18n="footer.contact.emailLabel">Correo</span>: hola@florazucar.com</li>
+            <li><span data-i18n="footer.contact.addressLabel">Dirección</span>: <span data-i18n="footer.contact.address">123 Calle Flor, Miami, FL</span></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.hoursTitle">Horario</h4>
+          <ul class="footer-links">
+            <li><span data-i18n="footer.hours.weekdays">Lun–Vie</span>: <span data-i18n="footer.hours.weekdaysValue">9am–6pm</span></li>
+            <li><span data-i18n="footer.hours.weekend">Sáb–Dom</span>: <span data-i18n="footer.hours.weekendValue">10am–4pm</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Flor &amp; Azúcar. <span data-i18n="footer.rights">Todos los derechos reservados.</span></span>
+        <span>Miami, FL</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
