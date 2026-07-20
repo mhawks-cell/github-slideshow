@@ -11,3 +11,19 @@ I'm the GitHub Learning Lab bot and I'm here to help guide you in your journey t
 I'll meet you over there, can't wait to get started!
 
 This course is using the :sparkles: open source project [reveal.js](https://github.com/hakimel/reveal.js/). In some cases we’ve made changes to the history so it would behave during class, so head to the original project repo to learn more about the cool people behind this project.
+
+## Making a video from images
+
+`script/make-video` combines a directory of images into an MP4 using [ffmpeg](https://ffmpeg.org/) (must be installed separately). Drop images into `images/` and run:
+
+```sh
+script/make-video
+```
+
+Options:
+
+```sh
+script/make-video --input images --output video.mp4 --duration 2 --width 1280 --height 720
+```
+
+Use `--dry-run` to print the ffmpeg command without generating a video, and `--help` for the full list of options.

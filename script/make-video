@@ -1,0 +1,160 @@
+#!/usr/bin/env node
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
+const { spawnSync } = require('child_process');
+
+const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg']);
+
+function parseArgs(argv) {
+  const args = {
+    input: 'images',
+    output: 'video.mp4',
+    duration: 2,
+    width: 1280,
+    height: 720,
+    dryRun: false,
+  };
+
+  for (let i = 0; i < argv.length; i++) {
+    const arg = argv[i];
+    switch (arg) {
+      case '--input':
+        args.input = argv[++i];
+        break;
+      case '--output':
+        args.output = argv[++i];
+        break;
+      case '--duration':
+        args.duration = Number(argv[++i]);
+        break;
+      case '--width':
+        args.width = Number(argv[++i]);
+        break;
+      case '--height':
+        args.height = Number(argv[++i]);
+        break;
+      case '--dry-run':
+        args.dryRun = true;
+        break;
+      case '-h':
+      case '--help':
+        printUsage();
+        process.exit(0);
+        break;
+      default:
+        console.error(`Unknown argument: ${arg}`);
+        printUsage();
+        process.exit(1);
+    }
+  }
+
+  return args;
+}
+
+function printUsage() {
+  console.log(`Usage: script/make-video [options]
+
+Combine a directory of images into an MP4 video using ffmpeg.
+
+Options:
+  --input <dir>      Directory of images to combine (default: images)
+  --output <file>    Output video path (default: video.mp4)
+  --duration <secs>  Seconds each image is shown (default: 2)
+  --width <px>       Output video width (default: 1280)
+  --height <px>      Output video height (default: 720)
+  --dry-run          Print the ffmpeg command without running it
+  -h, --help         Show this help message
+`);
+}
+
+function findImages(dir) {
+  if (!fs.existsSync(dir) || !fs.statSync(dir).isDirectory()) {
+    throw new Error(`Input directory not found: ${dir}`);
+  }
+
+  return fs
+    .readdirSync(dir)
+    .filter((file) => IMAGE_EXTENSIONS.has(path.extname(file).toLowerCase()))
+    .sort()
+    .map((file) => path.resolve(dir, file));
+}
+
+function escapeForConcat(file) {
+  return file.replace(/'/g, "'\\''");
+}
+
+function buildConcatList(images, duration) {
+  const lines = [];
+  for (const image of images) {
+    lines.push(`file '${escapeForConcat(image)}'`);
+    lines.push(`duration ${duration}`);
+  }
+  // ffmpeg's concat demuxer ignores the duration on the final entry, so the
+  // last image is repeated without one to get its full display time.
+  lines.push(`file '${escapeForConcat(images[images.length - 1])}'`);
+  return lines.join('\n') + '\n';
+}
+
+function main() {
+  const args = parseArgs(process.argv.slice(2));
+
+  let images;
+  try {
+    images = findImages(args.input);
+  } catch (err) {
+    console.error(err.message);
+    process.exit(1);
+  }
+
+  if (images.length === 0) {
+    console.error(`No images (.png, .jpg, .jpeg) found in ${args.input}`);
+    process.exit(1);
+  }
+
+  const listFile = path.join(os.tmpdir(), `make-video-${Date.now()}.txt`);
+  fs.writeFileSync(listFile, buildConcatList(images, args.duration));
+
+  const filter = `scale=${args.width}:${args.height}:force_original_aspect_ratio=decrease,pad=${args.width}:${args.height}:(ow-iw)/2:(oh-ih)/2:color=black`;
+
+  const ffmpegArgs = [
+    '-y',
+    '-f', 'concat',
+    '-safe', '0',
+    '-i', listFile,
+    '-vsync', 'vfr',
+    '-pix_fmt', 'yuv420p',
+    '-vf', filter,
+    path.resolve(args.output),
+  ];
+
+  console.log(`Found ${images.length} image(s) in ${args.input}`);
+  console.log(`ffmpeg ${ffmpegArgs.join(' ')}`);
+
+  if (args.dryRun) {
+    fs.unlinkSync(listFile);
+    return;
+  }
+
+  const result = spawnSync('ffmpeg', ffmpegArgs, { stdio: 'inherit' });
+  fs.unlinkSync(listFile);
+
+  if (result.error) {
+    if (result.error.code === 'ENOENT') {
+      console.error('ffmpeg was not found. Install it first (e.g. `brew install ffmpeg` or `apt-get install ffmpeg`).');
+    } else {
+      console.error(result.error.message);
+    }
+    process.exit(1);
+  }
+
+  if (result.status !== 0) {
+    process.exit(result.status);
+  }
+
+  console.log(`Wrote ${args.output}`);
+}
+
+main();
